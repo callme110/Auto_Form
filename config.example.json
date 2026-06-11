@@ -1,0 +1,10 @@
+{
+  "form_url": "https://example.com/form",
+  "name": "你的姓名",
+  "student_id": "你的学号",
+  "phone": "你的手机号",
+  "building": "你的楼栋",
+  "college": "你的学院",
+  "student_source": "内招生",
+  "political_status": "共青团员"
+}
