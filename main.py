@@ -160,7 +160,7 @@ def fill_form(page: Page, config: dict[str, str]) -> str:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="自动填写并提交金数据志愿活动表单")
+    parser = argparse.ArgumentParser(description="自动填写并提交社区志愿活动报名表单")
     parser.add_argument("--config", default="config.json", help="配置文件路径")
     parser.add_argument("--dry-run", action="store_true", help="只填写，不提交")
     parser.add_argument("--headless", action="store_true", help="不显示浏览器窗口")
