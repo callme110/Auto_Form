@@ -4,19 +4,80 @@
 
 项目的核心目标是减少重复填写表单的机械操作，同时避免误报已满活动。脚本不会依赖 `field_4`、`field_10` 这类会随链接变化的内部编号，而是按页面标题定位字段，例如“姓名”“学号”“活动项”“学院名称”。
 
-## 1. 安装依赖
+## 1. 从零开始准备运行环境
 
-项目使用 `uv` 管理依赖：
+以下命令以 Windows PowerShell 为例。
+
+### 1.1 安装 uv
+
+`uv` 是本项目使用的 Python 环境和依赖管理工具。第一次使用时先安装它：
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+如果系统已经安装了 `winget`，也可以使用：
+
+```powershell
+winget install --id=astral-sh.uv -e
+```
+
+安装完成后，关闭并重新打开 PowerShell，然后验证：
+
+```powershell
+uv --version
+```
+
+### 1.2 获取项目代码
+
+如果还没有下载项目：
+
+```powershell
+git clone https://github.com/callme110/Auto_Form.git
+cd Auto_Form
+```
+
+如果已经在项目目录中，可以跳过这一步。
+
+### 1.3 安装项目使用的 Python
+
+项目根目录里已经包含 `.python-version`，当前使用 Python 3.13。可以让 `uv` 自动安装并管理这个 Python 版本：
+
+```powershell
+uv python install 3.13
+```
+
+确认 Python 可用：
+
+```powershell
+uv run python --version
+```
+
+### 1.4 创建虚拟环境并安装依赖
+
+在项目根目录运行：
 
 ```powershell
 uv sync
 ```
 
-首次运行 Playwright 时，需要安装浏览器：
+这一步会根据 `pyproject.toml` 和 `uv.lock` 创建 `.venv` 虚拟环境，并安装 Playwright 等 Python 依赖。
+
+### 1.5 安装 Playwright 浏览器
+
+Playwright 依赖安装好后，还需要安装实际用于自动化操作的浏览器。项目只需要 Chromium：
 
 ```powershell
 uv run playwright install chromium
 ```
+
+### 1.6 检查脚本是否能启动
+
+```powershell
+uv run python main.py --help
+```
+
+能看到命令行帮助信息，就说明基础环境已经准备好。
 
 ## 2. 创建本地配置
 
