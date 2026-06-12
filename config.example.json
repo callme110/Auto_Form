@@ -3,6 +3,8 @@
   "name": "你的姓名",
   "student_id": "你的学号",
   "phone": "你的手机号",
+  "target_group": "123456789",
+  "qq_number": "123456789",
   "building": "你的楼栋",
   "college": "你的学院",
   "student_source": "内招生",
